@@ -1,0 +1,15 @@
+{
+  "name": "sonic-pages",
+  "version": "0.0.0",
+  "homepage": "https://github.com/joostverdoorn/sonic",
+  "authors": [
+    "Joost Verdoorn <jpverdoorn@gmail.com>"
+  ],
+  "license": "MIT",
+  "devDependencies": {},
+  "dependencies": {
+    "bootstrap": "~3.3.4",
+    "sonic": "joostverdoorn/sonic#develop",
+    "rivets": "~0.8.1"
+  }
+}

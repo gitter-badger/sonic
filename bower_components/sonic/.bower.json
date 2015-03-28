@@ -1,0 +1,13 @@
+{
+  "name": "sonic",
+  "homepage": "https://github.com/joostverdoorn/sonic",
+  "_release": "9ac4f304b7",
+  "_resolution": {
+    "type": "branch",
+    "branch": "develop",
+    "commit": "9ac4f304b7b701b8a28cd1acc0e357f1c3b58c66"
+  },
+  "_source": "git://github.com/joostverdoorn/sonic.git",
+  "_target": "develop",
+  "_originalSource": "joostverdoorn/sonic"
+}
