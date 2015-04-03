@@ -70,6 +70,16 @@ module.exports = ( grunt ) ->
           ext: '.js'
         ]
 
+      assets:
+        files: [
+          expand: true
+          cwd: 'assets/src'
+          src: ['**/*.coffee']
+          dest: 'assets'
+          ext: '.js'
+        ]
+
+
     browserify:
       default:
         files: 'dist/sonic.browser.js': 'dist/sonic.js'
@@ -120,6 +130,10 @@ module.exports = ( grunt ) ->
         files: ['src/**/*.coffee', 'spec/**/*.coffee']
         tasks: ['spec']
 
+      assets:
+        files: ['assets/src/**/*.coffee']
+        tasks: ['assets']
+
     codo:
       files: ['src/**/*.coffee']
 
@@ -139,5 +153,10 @@ module.exports = ( grunt ) ->
   grunt.registerTask 'perf',    ['clean', 'dist', 'coffee:perf' ,'benchmark:default']
   grunt.registerTask 'test',    ['spec', 'browserify:istanbul', 'jasmine:lcovonly']
   grunt.registerTask 'cov',     ['spec', 'browserify:istanbul', 'jasmine:html']
+  grunt.registerTask 'assets',  ['coffee:assets']
+
+#
+# gh-pages specific
+#
 
 
