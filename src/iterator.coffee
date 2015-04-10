@@ -1,8 +1,9 @@
 class Iterator
 
-  constructor: ( list, startId ) ->
+  constructor: ( list, startId, endId = 0) ->
     @list = list
     @currentId = @startId = startId
+    @endId = endId
 
   current: ( ) ->
     return @list.get(@currentId)
@@ -13,11 +14,11 @@ class Iterator
 
   moveNext: ( ) ->
     @currentId = @list.next(@currentId)
-    return !!@currentId
+    return (!!@currentId and @currentId isnt @endId)
 
   movePrevious: ( ) ->
     @currentId = @list.prev(@currentId)
-    return !!@currentId
+    return (!!@currentId and @currentId isnt @endId)
 
   # We also implement the ES6 iterator protocol.
   # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/The_Iterator_protocol

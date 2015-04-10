@@ -2,9 +2,13 @@
   var Iterator;
 
   Iterator = (function() {
-    function Iterator(list, startId) {
+    function Iterator(list, startId, endId) {
+      if (endId == null) {
+        endId = 0;
+      }
       this.list = list;
       this.currentId = this.startId = startId;
+      this.endId = endId;
     }
 
     Iterator.prototype.current = function() {
@@ -18,12 +22,12 @@
 
     Iterator.prototype.moveNext = function() {
       this.currentId = this.list.next(this.currentId);
-      return !!this.currentId;
+      return !!this.currentId && this.currentId !== this.endId;
     };
 
     Iterator.prototype.movePrevious = function() {
       this.currentId = this.list.prev(this.currentId);
-      return !!this.currentId;
+      return !!this.currentId && this.currentId !== this.endId;
     };
 
     Iterator.prototype.next = function() {

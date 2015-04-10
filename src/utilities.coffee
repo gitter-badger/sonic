@@ -6,9 +6,9 @@ module.exports =
   # @param[Number] listst The id of the item to listst at. Can be omitted to listst at the first item
   # @return [Iterator] A new iterator that iterates the given array or list
   #
-  getIterator: ( start ) ->
+  getIterator: ( start, end ) ->
     Iterator = require('./iterator')
-    return new Iterator(@, start)
+    return new Iterator(@, start, end)
 
   # Alias for `forEach`
   #

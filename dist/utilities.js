@@ -2,10 +2,10 @@
   var __slice = [].slice;
 
   module.exports = {
-    getIterator: function(start) {
+    getIterator: function(start, end) {
       var Iterator;
       Iterator = require('./iterator');
-      return new Iterator(this, start);
+      return new Iterator(this, start, end);
     },
     each: function(fn) {
       return this.forEach(fn);

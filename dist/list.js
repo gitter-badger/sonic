@@ -21,6 +21,8 @@
       }
     }
 
+    List.prototype.add = List.prototype._add;
+
     List.prototype.set = function(id, value) {
       return this._set(id, value);
     };

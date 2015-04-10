@@ -436,9 +436,13 @@
   var Iterator;
 
   Iterator = (function() {
-    function Iterator(list, startId) {
+    function Iterator(list, startId, endId) {
+      if (endId == null) {
+        endId = 0;
+      }
       this.list = list;
       this.currentId = this.startId = startId;
+      this.endId = endId;
     }
 
     Iterator.prototype.current = function() {
@@ -452,12 +456,12 @@
 
     Iterator.prototype.moveNext = function() {
       this.currentId = this.list.next(this.currentId);
-      return !!this.currentId;
+      return !!this.currentId && this.currentId !== this.endId;
     };
 
     Iterator.prototype.movePrevious = function() {
       this.currentId = this.list.prev(this.currentId);
-      return !!this.currentId;
+      return !!this.currentId && this.currentId !== this.endId;
     };
 
     Iterator.prototype.next = function() {
@@ -523,6 +527,8 @@
         }
       }
     }
+
+    List.prototype.add = List.prototype._add;
 
     List.prototype.set = function(id, value) {
       return this._set(id, value);
@@ -846,10 +852,10 @@
   var __slice = [].slice;
 
   module.exports = {
-    getIterator: function(start) {
+    getIterator: function(start, end) {
       var Iterator;
       Iterator = require('./iterator');
-      return new Iterator(this, start);
+      return new Iterator(this, start, end);
     },
     each: function(fn) {
       return this.forEach(fn);

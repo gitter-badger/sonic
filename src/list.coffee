@@ -10,6 +10,8 @@ class List extends AbstractList
     # @_splice(0, 0, 0)
     @_add(value, null, 0) for value in values if values?
 
+  add: @::_add
+
   set: ( id, value ) ->
     return @_set(id, value)
 
